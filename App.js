@@ -3,10 +3,7 @@ import {View, AsyncStorage} from 'react-native';
 import{addNavigationHelpers} from 'react-navigation';
 import Root from './src/navigations';
 import {connect} from 'react-redux';
-import {
-getUser
-} from './src/actions';
-import Modal from './src/screen/popup/Modal'
+
 class App extends PureComponent {
   constructor(){
     super();
@@ -15,21 +12,22 @@ class App extends PureComponent {
     }
   }
   componentWillMount(){
-    this.props.getUser();
+    // this.props.getUser();
     this.getAsyncLocal();
   }
   async getAsyncLocal(){
     try {
+
       const keys = await AsyncStorage.getAllKeys();
+      
       await AsyncStorage.multiGet(keys, (err, storages)=>{
         storages.map((result, i, storage) =>{
-          console.log(result);
           let key = storages[i][0];
           let value = storages[i][1];
         })
       })
     } catch (error) {
-      
+      console.log(error)
     }
   }
   render() {
@@ -46,4 +44,4 @@ const mapStateProps = (state)=>{
   }
 }
 
-export default connect(mapStateProps, {getUser})(App);
+export default connect(mapStateProps, {})(App);

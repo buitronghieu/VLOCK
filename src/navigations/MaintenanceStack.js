@@ -1,11 +1,11 @@
 import {StackNavigator}from 'react-navigation';
-import {Condition} from '../screen';
+import {Maintenance} from '../screen';
 import {upperStr, configHeader} from './'
 export default ConditionStack =  StackNavigator({
-    Condition:{
-        screen: Condition,
+    Maintenance:{
+        screen: Maintenance,
         navigationOptions:({screenProps})=>({
-            tabBarLabel: upperStr(screenProps.status),
+            tabBarLabel: upperStr(screenProps.maintenance),
             ...configHeader
         })
     }

@@ -7,6 +7,7 @@ const LanguageDefault = () => {
     return Language;
 }
 const DEFAULT_STATE = {
+    loading: false,
     stringLanguage: 'vi',
     language: LanguageDefault,
     personal: {

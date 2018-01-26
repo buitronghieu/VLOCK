@@ -1,7 +1,18 @@
 import React, {PureComponent} from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
-class Condition extends PureComponent{
+
+@connect(mapStateProps= (state)=>{
+    return {
+        persional: state.local.personal,
+        connect: state.device.connect,
+        pinBlackbox: state.device.pinBlackbox,
+        pinRFID: state.device.pinRFID,
+        peripheralId: state.device.peripheralId,
+        anti_theft: state.device.anti_theft
+    }
+})
+export default class Condition extends PureComponent{
 
     render(){
         return(
@@ -9,7 +20,7 @@ class Condition extends PureComponent{
         )
     }
 }
-const mapStateProps=(state)=>{
-    return {state}
-}
-export default connect(mapStateProps)(Condition);
+
+const styles= StyleSheet.create({
+
+})

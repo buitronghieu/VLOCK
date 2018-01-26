@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class Popup extends PureComponent{
 
+    
     render(){
         if()
     }
